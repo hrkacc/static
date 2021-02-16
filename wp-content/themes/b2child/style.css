@@ -1,0 +1,205 @@
+/*
+Theme Name:     B2子主题
+Theme URI:      http: //7b2.com/
+Description:    Child theme for the seven
+Author:         子主题模版
+Author URI:     http: //7b2.com/
+Template:       b2
+Version:        0.1.5
+*/
+
+/*下面是您自己DIY的css样式代码*/
+.site .site-header-in {
+    box-shadow: 0px 0px 6px rgb(0 0 0 / 20%);
+}
+.download-box {
+    box-shadow: 0 0 0.0625rem 0 rgba(8,11,14,.06), 0 0.1875rem 0.1875rem -0.0625rem rgba(8,11,14,.1), 0 0 0.1875rem 0 rgba(8,11,14,.02);
+}
+.content-copyright {
+    color: #fff!important;
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 6px;
+    position: relative;
+    /*background-image: linear-gradient(-90deg, #29bdd9 0%, #276ace 100%);*/
+    background-image: linear-gradient(120deg, #48c6ef 0%, #6f86d6 100%);
+    box-shadow: 0 0 0.0625rem 0 rgba(8,11,14,.06), 0 0.1875rem 0.1875rem -0.0625rem rgba(8,11,14,.1), 0 0 0.1875rem 0 rgba(8,11,14,.02);
+    text-align: center;
+    font-size: 14px!important;
+    margin-bottom: 0!important;
+}
+.content-copyright a{
+    color: #fff!important;
+}
+.content-copyright p{
+    font-size: 14px!important;
+    margin: .5em 0;
+}
+.content-footer {
+    padding-top: 24px;
+}
+.content-footer .content-footer-love{
+    margin-left: auto;
+}
+.content-footer .content-footer-love i{
+    font-size: 24px;
+}
+.social-share{
+    align-items: center;
+    width: 100%;
+}
+.content-footer a {
+    margin: 0 2px;
+}
+.content-footer a i {
+    font-size: 24px;
+    color: rgba(32, 44, 59, 0.36);
+    font-style: normal;
+}
+.comment-content-text a{
+    color: #2d80ed;
+    border-bottom: 1px solid #2d80ed;
+}
+
+.hrka-laosiji, .hrka-xiaojiejie, .hrka-meizitu, .hrka-youxiji, .hrka-dianying, .hrka-mai, .hrka-zhoubao, .hrka-shenbingliqi, .hrka-web{
+    margin-right:10px ;
+}
+.download-button-box button ,.download-page-button .button{
+    color: #000!important;
+    box-shadow: 0 0 0.0625rem 0 rgba(8,11,14,.06), 0 0.1875rem 0.1875rem -0.0625rem rgba(8,11,14,.1), 0 0 0.1875rem 0 rgba(8,11,14,.02);
+    border: 1px solid #dddfe2;
+    transition: all .3s ease
+}
+.download-button-box button:hover ,.download-page-button .button:hover{
+    color: #fff!important;
+    transform: translateY(-.125rem);
+    box-shadow: 0 0 0.0625rem 0 rgba(8,11,14,.06), 0 0.375rem 0.375rem -0.0625rem rgba(8,11,14,.1);
+    background-color: #249ffd;
+    transition: all .3s ease
+}
+.vip-top {
+    color: rgb(255, 255, 255);
+    background: url();
+    background-image: linear-gradient(
+-90deg
+, rgb(119, 213, 230) 0%, rgb(36, 115, 232) 100%);
+    margin-top: -24px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.logo-left .mobile-box {
+    margin-left: 0;
+}
+@media screen and (max-width: 768px){
+    .mobile-hide {
+        display: none!important;
+    }
+    .content-footer {
+        margin-top: 0;
+    }
+    .content-copyright{
+        margin: 12px -12px 0;
+    }
+    
+}
+
+.top-menu ul li.depth-0 > a {
+    padding: 18px!important;
+    font-size: 1pc!important;
+}
+
+.entry-content img {
+    margin: 0 auto;
+    display: block;
+}
+.entry-content a {
+    color: #2d80ed;
+}
+/* .loading{
+    width: 80px;
+} */
+.lazy {
+    opacity: 1;
+}
+.insert-post-thumb img {
+    object-fit: cover;
+}
+
+.change-theme button .b2-search {
+    font-size: 22px;
+}
+.header-banner-left .menu li a i {
+    margin-top: 0;
+}
+.social-top .change-theme>div a {
+    margin-right: 12px;
+}
+.top-user-box img{
+    height: 28px;
+}
+.header-user .top-user-box {
+    width: 28px;
+    height: 28px;
+}
+.top-search-icon i{
+    display: table-cell;
+    vertical-align: bottom;
+}
+.header-banner-left .menu li a {
+    opacity: .5;
+    font-size: 12px;
+}
+@media screen and (max-width: 768px){
+    .ym-menu ul {
+        width: 100%;
+    }
+    .header-banner-left .menu li {
+        margin-right: 14px;
+    }
+    .header-banner-left .menu li a i {
+        font-size: 14px;
+    }
+    .change-theme button {
+        margin-right: 4px;
+    }
+    .change-theme > div:first-child {
+        display:block;
+    }
+    .change-theme button .b2-search {
+        font-size: 16px;
+    }
+    .social-top .change-theme>div a {
+        margin-right: 4px;
+    }
+    .logo-hidden{
+        display: none!important;
+    }
+    .top-user-box img{
+        height: 24px;
+    }
+    .header-user .top-user-box {
+        width: 24px;
+        height: 24px;
+    }
+    .top-search-icon a {
+        padding: 0;
+    }
+    .header-banner-content {
+        height: 33px;
+    }
+    .header-user {
+        top: 9px;
+    }
+    .menu-icon {
+        top: 9px;
+    }
+    .mg-b {
+        margin-bottom: 3px;
+    }
+}
