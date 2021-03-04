@@ -23,6 +23,7 @@ var b2CirclePostBox = new Vue({
         locked:false,
         userData:{
             avatar:'',
+            avatar_webp:''
         },
         allowSubmit:'less',
         topicType:'say',
@@ -200,6 +201,11 @@ var b2CirclePostBox = new Vue({
         getEditTopicData(){
             this.edit.topicId = b2GetQueryVariable('topic_id')
             this.$http.post(b2_rest_url+'getEditData','topic_id='+this.edit.topicId).then(res=>{
+
+                if(this.edit.is){
+                    this.userData = res.data.userData
+                }
+
                 this.showPoBox = true
                 
                 this.topicType = res.data.type
@@ -318,11 +324,13 @@ var b2CirclePostBox = new Vue({
                 this.currentUser.money = res.data.money
                 this.currentUser.credit = res.data.credit
                 Object.keys(res.data.circles).forEach(key => {
+                    
                     if(res.data.circles[key].is_circle_admin){
                         b2CircleList.circle.created[key] = res.data.circles[key]
-                    }else if(key != b2CircleList.circle.picked){
+                    }else if(!res.data.circles[key].is_circle_admin && res.data.circles[key].in_circle){
                         b2CircleList.circle.join[key] = res.data.circles[key]
                     }
+                    
                 });
 
                 this.currentUser.mediaRole = res.data.media_role
@@ -343,6 +351,7 @@ var b2CirclePostBox = new Vue({
             this.circle.picked = id
             this.circle.show = false
             this.resetFileRole(this.circle.picked)
+            b2CircleList.pickedCircle('join',id)
         },
         resetFileRole(circleId){
             this.character.min = this.circle.list[circleId].file_role.topic_count.min
@@ -1159,6 +1168,7 @@ var b2CircleList = new Vue({
             }
         },
         showCircleListBox(type){
+            this.topicFliter.show = false
             if(this.circle.showBox == type){
                 this.circle.current = this.circle.picked.type
                 this.circle.showBox = ''
@@ -1296,6 +1306,11 @@ var b2CircleList = new Vue({
                     b2recommendedCircle.current = id
                 }
             }
+            if(type != 'widget'){
+                b2CirclePostBox.getCurrentUserCircleData()
+                window.history.pushState(id, b2CirclePostBox.circle.list[id].name, b2CirclePostBox.circle.list[id].link)
+                document.title = b2CirclePostBox.circle.list[id].name+' '+b2_global.site_separator+' '+b2_global.site_name
+            }
         },
         resetFliter(){
             this.topicFliter.show = false
@@ -1329,6 +1344,7 @@ var b2CircleList = new Vue({
                 }
 
                 this.reload = false
+                this.locked = false
                 this.$nextTick(()=>{
                     b2RestTimeAgo(document.querySelectorAll('.b2timeago'))
                     b2SidebarSticky()
@@ -1338,6 +1354,7 @@ var b2CircleList = new Vue({
                
             }).catch(err=>{
                 this.reload = false
+                this.locked = false
             })
         },
         getData(){
@@ -1397,6 +1414,7 @@ var b2CircleList = new Vue({
                
             }).catch(err=>{
                 this.locked = false
+                this.reload = false
             })
         },
         play(id,index){
@@ -1460,8 +1478,8 @@ var b2CircleList = new Vue({
             
             if(!this.data[ti].full_content && !this.single.is){
                 let length = parseInt(content.length)
-                if(length > 100){
-                    if(length/3 > 100){
+                if(length > 200){
+                    if(length/3 > 200){
                         length = 100
                     }else{
                         length = length/3
@@ -2047,9 +2065,9 @@ var b2CircleList = new Vue({
 
             if(!this.answer.list[ai].full_answer){
                 let length = parseInt(content.length)
-                if(length > 100){
-                    if(length/3 > 100){
-                        length = 100
+                if(length > 200){
+                    if(length/3 > 200){
+                        length = 200
                     }else{
                         length = length/3
                     }

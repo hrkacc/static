@@ -204,7 +204,7 @@
 	})
 	
 	var checkType_alipay = jQuery('#alipay').find(':selected').val();
-	let alipay_type = ['alipay_normal','xunhu','alipay_hupijiao','mapay','xorpay','payjs','yipay','pay020'];
+	let alipay_type = ['alipay_normal','xunhu','alipay_hupijiao','mapay','xorpay','payjs','yipay','pay020','suibian'];
 	alipay_type.forEach(e => {
 		if(checkType_alipay === e){
 			jQuery('#'+e).show()
@@ -229,7 +229,7 @@
 	})
 	
 	var checkType_wecatpay = jQuery('#wecatpay').find(':selected').val();
-	let wecatpay_type = ['wecatpay_normal','xunhu','wecatpay_hupijiao','mapay','xorpay','payjs','yipay','pay020'];
+	let wecatpay_type = ['wecatpay_normal','xunhu','wecatpay_hupijiao','mapay','xorpay','payjs','yipay','pay020','suibian'];
 	wecatpay_type.forEach(e => {
 		if(checkType_wecatpay === e){
 			jQuery('#'+e).show()

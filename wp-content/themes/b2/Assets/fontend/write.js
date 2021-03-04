@@ -187,7 +187,7 @@
             default_link_target: "_blank",
             image_advtab:true,
             plugins: 'code,lists,advlist,autoresize,codesample,link,hr,fullscreen,image,paste,b2preview',
-            toolbar1:'bold italic forecolor backcolor | heading blockquote codesample numlist bullist | link b2imagelibrary b2video hr | insertShotCode | removeformat | codesample | fullscreen',
+            toolbar1:'bold italic forecolor backcolor | heading blockquote codesample numlist bullist | link b2imagelibrary b2video hr | insertShotCode | removeformat | fullscreen',
             image_caption: true,
             content_style: 'img {max-width: 100%;}',
             oninit : "setPlainText",

@@ -619,6 +619,9 @@ trix-toolbar .trix-button-row{
     position: relative;
     z-index: 2;
 }
+.tox-form__group select{
+    background: none;
+}
 /*移动端样式*/
 @media screen and (max-width:720px){
     .tox .b2-library-box>div{

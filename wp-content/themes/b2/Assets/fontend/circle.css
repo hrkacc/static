@@ -120,6 +120,7 @@
     align-items: center;
     justify-content: space-between;
     border-radius: 3px;
+    height:23px
 }
 .po-topic-top-left{
     white-space: nowrap;
@@ -344,6 +345,7 @@
     background: #fff;
     padding: 3px;
     height: 34px;
+    box-sizing: border-box;
 }
 .ask-reward-input .zhanwei span{
     color: #333;
@@ -825,8 +827,8 @@
     display: block;
 }
 .circle-card-thumb{
-    width:60px;
-    min-width: 60px;
+    width:43px;
+    min-width: 43px;
     height:43px;
     position: relative;
     display: block;
@@ -1554,7 +1556,8 @@ button.all-circles{
     background-color: #fff;
     position: absolute;
     top:0;
-    left:0
+    left:0;
+    box-shadow: 0 1px 1px 0 rgb(0 0 0 / 5%);
 }
 .topic-image-box li>div span.image-number{
     position: absolute;
@@ -2264,8 +2267,13 @@ button.all-circles{
     border-bottom: 1px solid #efefef;
 }
 .my-circle-list > div{
-    width:33.333333%;
+    width: 25%;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    box-sizing: border-box;
 }
 .my-circle-list > div > button{
     color:inherit;
@@ -2296,7 +2304,7 @@ button.all-circles{
 .my-circle-list > div > button span b{
     font-weight: normal;
 }
-.my-circle-list > div + div > button{
+.my-circle-list > div + div{
     border-left:1px solid #f4f4f4
 }
 #public .my-circle-list button.picked:after,#public .my-circle-list button.picked:before {
@@ -2419,6 +2427,10 @@ button.all-circles{
     -webkit-line-clamp: 2;
     font-size: 16px;
 }
+.topic-sticky-title h2 b{
+    color:#ff3a55;
+    font-weight: normal;
+}
 .circle-my-create li{
     cursor: pointer;
 }
@@ -2428,7 +2440,7 @@ button.all-circles{
     padding:11px
 }
 .circle-my-create ul li{
-    width: 25%;
+    width: 33.33333%;
     text-align: left;
     padding: 5px;
     font-size: 14px;
@@ -2958,10 +2970,8 @@ button.all-circles{
 .all-circles-tag-name{
     display: block;
     height:40px;
-    width:80px;
     line-height: 40px;
     font-size: 17px;
-    text-align: center;
     margin-bottom:10px
 }
 .all-circles-item{
@@ -3022,7 +3032,6 @@ button.all-circles{
 }
 .circle-child-info{
     font-size: 12px;
-    color:#999;
     padding-left:85px;
     width:100%
 }
@@ -3278,8 +3287,19 @@ button.all-circles{
     line-height: 40px;
     text-align: center;
 }
-.topic-list-empty{
-    display: none;
+.circle-child-name-box{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.circlefree{
+    color:green
+}
+.circlemoney{
+    color:red
+}
+.circlelv{
+    color:#9d87d2
 }
 .po-topic-top-right .picked{
     color:#f44336
@@ -3707,12 +3727,24 @@ button.all-circles{
         padding:0
     }
     .my-circle-list>div>button{
-        padding:10px;
-        height:40px;
-        font-size: 14px;
+        color: inherit;
+        font-size: 13px;
+        width: 100%;
+        position: relative;
+        background: 0 0;
+        border: 0;
         display: flex;
-        line-height: 1;
+        justify-content: center;
+        z-index: 2;
+        padding: 0;
+        height: 40px;
         align-items: center;
+    }
+    .po-topic-circle ul li{
+        width:50%
+    }
+    .my-circle-list>div{
+        font-size: 13px;
     }
     .topic-mg-t{
         margin-top:8px
@@ -3746,7 +3778,7 @@ button.all-circles{
         border:0
     }
     .po-topic-top{
-        padding:10px
+        padding:10px;
     }
     .po-form-box{
         padding:0

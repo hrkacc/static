@@ -3,7 +3,6 @@ var lazyLoadInstance = new LazyLoad({
 });
 
 function b2prettyPrint(){
-    if(!document.querySelector('#prettify-js')) return
 	let classArr =  document.getElementsByTagName('pre');//替换标签class
 	if(typeof(classArr)=="object"){		
 		for(var i = 0;i < classArr.length;i++){			
@@ -338,6 +337,11 @@ function b2ImgZooming(sele){
         b2zoom.listen(img2[i]);
     }
 
+    var img3 = document.querySelectorAll('.entry-content > p > img')
+    for (let i = 0; i < img3.length; i++) {
+        b2zoom.listen(img3[i]);
+    }
+
 }
 document.addEventListener('DOMContentLoaded', function () {
     b2ImgZooming('.entry-content img')
@@ -494,9 +498,9 @@ Vue.component('poster-box', {
                 h = dom.clientHeight;
 
             html2canvas(dom,{
+                background: '#ffffff',
                 taintTest: false,
                 useCORS: true,
-                dpi: 240,
                 scale: 2,
                 with:w,
                 height:h,
@@ -505,12 +509,16 @@ Vue.component('poster-box', {
                     canvas.webkitImageSmoothingEnabled = false;
                     canvas.msImageSmoothingEnabled = false;
                     canvas.imageSmoothingEnabled = false;
+
+                    
                     //this.poster = canvas.toDataURL();
                     //console.log(imgData)
                     //this.poster = canvas.convertToJPEG(canvas, canvas.width, canvas.height);
-                    this.poster = canvas.toDataURL()
+                    let img = Canvas2Image.convertToJPEG(canvas, w*2, h*2)
+                    this.poster = img.src
                 }
             });
+            
         },
         base64ToBlob(code) {
             var parts = code.split(';base64,');
@@ -530,15 +538,17 @@ Vue.component('poster-box', {
         show(val){
             if(val && !this.loadedjs){
                 b2loadScript(b2_global.site_info.site_uri+'/Assets/fontend/library/html2canvas.min.js','',()=>{
-                    this.loadedjs = true
-                    let img = new Image()
-                    img.src = this.data.thumb;
-                    img.setAttribute("crossOrigin",'Anonymous')
-                    img.onload = ()=>{
-                        setTimeout(() => {
-                            this.html2canvas()
-                        }, 100);
-                    }
+                    b2loadScript(b2_global.site_info.site_uri+'/Assets/fontend/library/canvas2image.min.js','',()=>{
+                        this.loadedjs = true
+                        let img = new Image()
+                        img.src = this.data.thumb;
+                        img.setAttribute("crossOrigin",'Anonymous')
+                        img.onload = ()=>{
+                            setTimeout(() => {
+                                this.html2canvas()
+                            }, 100);
+                        }
+                    })
                 })
             }
         }

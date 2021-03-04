@@ -1045,7 +1045,7 @@ function postCatSelect(){
                 pages = item.getAttribute('data-pages')
 
                 //内容区域
-                let box = item.parentNode.querySelectorAll('ul.b2_gap')[0]
+                let box = item.parentNode.querySelectorAll('.b2_gap')[0]
 
                 if(type === 'cat'){
                     paged[i] = 1
@@ -1059,6 +1059,10 @@ function postCatSelect(){
                 opt['post_cat'] = cats
                 opt['post_paged'] = paged[i]
                 opt['post_i'] = i
+
+                if(opt['post_type']  == 'post-6'){
+                    box = item.parentNode.querySelectorAll('.post-6-table tbody')[0]
+                }
 
                 axios.post(b2_rest_url+'getPostList',Qs.stringify(opt)).then(res=>{
 
@@ -1085,7 +1089,12 @@ function postCatSelect(){
 
                             //如果内容为空，加载提示
                             if(res.data.data == ''){
-                                box.innerHTML = b2_global.empty_page
+                                if(opt['post_type']  == 'post-6'){
+                                    box.innerHTML = '<tr><td colspan="10" style="border:0">'+b2_global.empty_page+'</td></tr>'
+                                }else{
+                                    box.innerHTML = b2_global.empty_page
+                                }
+                                
                                 //隐藏按钮
                                 hiddenButton(button,false)
                             //如果内容不为空，并且只有一页，隐藏加载更多按钮
@@ -1569,7 +1578,7 @@ function b2RestTimeAgo(dom){
 let pageNavBox = new Vue({
     el:'.post-nav',
     data:{
-        selecter:'#post-list > .b2_gap',
+        selecter:'#post-list .b2_gap',
         opt:'',
         api:'getPostList',
         options:[],
@@ -2609,7 +2618,7 @@ Vue.component('ds-box', {
             custom:0,
             content:'',
             payType:'',
-            payMoney:0,
+            payMoney:'',
             locked:false,
             jump:'',
             href:'',
@@ -2619,14 +2628,16 @@ Vue.component('ds-box', {
             card:[],
             cg:[],
             newWin: null,
-            login:false
+            login:false,
+            redirect:''
         }
     },
-    created(){
+    async created(){
         this.isWeixin = b2isWeixin()
         if(b2token){
             this.login = true
         }
+        this.redirect = await localforage.getItem('historyUrl');
     },
     methods:{
         close(){
@@ -2671,19 +2682,11 @@ Vue.component('ds-box', {
             }
             data['pay_type'] = this.payType
 
-            async function getUrl() {
-                return await localforage.getItem('historyUrl');
-            }
+            data = Object.assign({
+                'redirect_url':this.redirect + '?paystatus=check'
+            },data)
 
-            (async () => {
-                let url = await getUrl()
-
-                data = Object.assign({
-                    'redirect_url':url + '?paystatus=check'
-                },data)
-            })()
-
-              return data
+            return data
 
         },
         disabled(){
@@ -4130,9 +4133,9 @@ Vue.component('bind-login', {
             success:''
         }
     },
-    mounted(){
-        let userData = userTools.userData
-        if(userData.user_link){
+    async mounted(){
+        let userData = await localforage.getItem('userData')
+        if(userData){
             this.userData = userData
         }
     },

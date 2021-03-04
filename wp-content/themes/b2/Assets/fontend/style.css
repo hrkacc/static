@@ -243,7 +243,7 @@
 .top-menu ul li.depth-0 > a .hob{
     visibility: hidden;
     opacity: 0;
-    height: 2px;
+    height: 3px;
     position: absolute;
     top: auto;
     right: 12px;
@@ -489,6 +489,8 @@
 }
 .top-search-select{
     cursor: pointer;
+    display: block;
+    padding: 5px 10px;
 }
 .top-search-select i{
     font-size: 14px;
@@ -749,7 +751,6 @@
     flex:0 0 33.3333%
 }
 .shop-list-item{
-    overflow: hidden;
     position: relative;
 }
 .shop-list-item h2{
@@ -908,7 +909,9 @@
     visibility: hidden;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
-    border-top:1px solid #f0f0f0
+    border-top:1px solid #f0f0f0;
+    box-sizing: border-box;
+    box-shadow: 0 0 20px 0 rgb(0 0 0 / 8%);
 }
 .has_children .sub-menu a{
     display: flex;
@@ -974,7 +977,7 @@
 .b2-menu-3 .sub-menu-0 a{
     font-size: 14px;
     display: flex;
-    padding: 6px 10px;
+    padding:10px 14px;
     justify-content: space-between
 }
 .menu-post-box:hover a{
@@ -1046,8 +1049,8 @@
     flex-flow: wrap;
 }
 .b2-menu-4 ul ul li a img{
-    width:26px;
-    height:26px;
+    width:22px;
+    height:22px;
     margin-right:5px;
     border-radius: 100%;
     border:1px solid #fff
@@ -1080,9 +1083,10 @@
     min-width: 18%;
 }
 .b2-menu-4 .sub-menu-0 > li > a{
-    border-bottom:1px solid #ccc;
+    background-color: #f6f6f6;
     font-size: 14px;
     padding-bottom:10px;
+    padding: 9px 13px;
 }
 /*菜单 menu-2*/
 .top-menu-ul .box{
@@ -1117,7 +1121,7 @@
     display: flex;
     font-size: 15px;
     margin-bottom: 10px;
-    padding: 14px 0 5px 0;
+    padding: 14px 0 10px;
     border-bottom: 1px dashed #ccc;
     justify-content: space-between;
     font-size: 13px;
@@ -1180,7 +1184,6 @@
     padding: 40px 24px 24px 24px;
     margin: 0 auto;
     position: relative;
-    background-image: url(images/model-bg.png);
     background-repeat: no-repeat;
     background-size: 100%;
     box-sizing: border-box;
@@ -2180,7 +2183,6 @@ button.flickity-button{
     align-items: center;
     justify-content: center;
     position: relative;
-    overflow: hidden;
 }
 .slider-1 .slider-1-carousel{
     margin:0 auto;
@@ -2202,6 +2204,7 @@ button.flickity-button{
     width: 100%;
     text-align: center;
     overflow: hidden;
+    background-color: #fff;
 }
 .slider-in h2{
     font-size: 22px;
@@ -2541,6 +2544,7 @@ button.flickity-button{
     align-items: center;
     padding:16px;
     width: 100%;
+    box-sizing: border-box;
 }
 .modules-title-box span{
     flex: 1;
@@ -2569,6 +2573,55 @@ p.module-desc{
 .cat-none .modules-title-box {
     border:0
 }
+/*下载信息*/
+.post-pay-type{
+    position: absolute;
+    bottom: 10px;
+    color: #fff;
+    left: 15px;
+    font-size: 12px;
+    text-shadow: 0 0 1px #000;
+}
+.post-pay-type > div{
+    margin-bottom:5px;
+    white-space: nowrap;
+}
+.post-3 .post-pay-type>div{
+    margin-bottom:0;
+    display: flex;
+}
+.post-pay-type .post-pay-type-icon{
+    background: #fff;
+    border-radius: 50px;
+    color:#333;
+    margin-right: 5px;
+    padding-right: 5px;
+    text-shadow:none;
+}
+.post-pay-type span{
+    line-height: 16px;
+    height: 16px;
+}
+.item-post-style-3 .post-pay-type{
+    bottom: inherit;
+    top:15px
+}
+.post-3 .post-pay-type .post-pay-type-icon{
+    padding-right:0
+}
+.post-3 .post-pay-type{
+    position: inherit;
+    margin-bottom:10px;
+    display: flex;
+    text-shadow: none;
+    color:#333
+}
+.post-3 .post-pay-type > div + div{
+    margin-left:16px;
+}
+.post-pay-type > div i{
+    color:#ff5722
+}
 /*文章样式1(post-1)*/
 .post-1.post-list ul.b2_gap{
     display: flex;
@@ -2596,6 +2649,11 @@ p.module-desc{
 }
 .post-info i.b2-vrenzhengguanli{
 	position: inherit;
+}
+.post-3 .post-info >div:first-child{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 .post-module-thumb{
     position: relative;
@@ -2815,7 +2873,7 @@ p.module-desc{
     display: none;
 }
 .item-in{
-    overflow: hidden;
+
 }
 .post-module-thumb .post-status{
     position: absolute;
@@ -2838,13 +2896,21 @@ p.module-desc{
     -webkit-line-clamp: 2;
     height:auto
 }
+a.post-list-cat-item{
+    height: 19px;
+    display: inline-block;
+    line-height: 19px;
+    padding: 0 5px;
+    text-shadow: 0 1px 1px #fff; 
+}
+.item-post-style-3 .post-list-cat a{
+    background-color: rgb(230 230 230/26%)!important;
+    color: #ffffffc2!important;
+    text-shadow: none;
+}
 /*文章样式3(post-3)*/
 .post-3-li-dubble .item-in .post-info h2{
     height: 44px;
-}
-.post-3 .post-list-cat-item{
-    color:#999;
-    padding:0
 }
 .item-post-style-3 .post-thumb{
     position: absolute;
@@ -2923,16 +2989,17 @@ p.module-desc{
 }
 .post-3 .post-list-meta-box {
     margin:0;
-    margin-top:16px
 }
 .post-3 .post-excerpt{
-    margin:0
+    margin:0;
+    margin-bottom:10px
 }
 .post-3 a.post-list-cat-item{
     display: inline-block;
     margin-right:10px;
     letter-spacing: 1px;
-    margin-bottom:2px
+    margin-bottom:2px;
+    white-space: nowrap;
 }
 .post-3 .post-list-cat{
     margin-bottom:8px
@@ -2962,6 +3029,9 @@ p.module-desc{
 .post-5 .b2_gap>li .item-in{
     margin-bottom:0;
     margin-right:-1px 
+}
+.post-5 .load-more,.post-5 .b2-pagenav{
+    border-top:1px solid #f0f0f0
 }
 .post-3 .post-3-li .item-in {
     border-bottom:1px solid #eee;
@@ -3015,7 +3085,7 @@ p.module-desc{
 .post-5 ul.b2_gap > li{
     padding:16px;
     border-right:1px solid #eee;
-    border-bottom:1px solid #eee
+    border-top:1px solid #eee
 }
 .post-5 .hidden-line{
     overflow: hidden;
@@ -3033,16 +3103,22 @@ p.module-desc{
     background: #f6f8fa;
 }
 .post-6-date{
-    flex:0 0 14%
+    width: 10%;
 }
 .post-6-title{
-    flex:0 0 50%
+    width: 50%;
 }
 .post-6-category{
-    flex:0 0 10%
+    width: 10%;
 }
 .post-6-author{
-    flex:0 0 10%
+    width: 10%;
+}
+.grid-item.post-list-item > td:first-child{
+    border-left:0
+}
+.grid-item.post-list-item > td:last-child{
+    border-right:0
 }
 .post-list-meta-user i.b2-vrenzhengguanli{position: inherit;} 
 /*专题*/
@@ -3160,8 +3236,8 @@ p.module-desc{
     font-size: 14px;
 }
 .home-collection-content > div > div{
+    margin-bottom:0;
     overflow: hidden;
-    margin-bottom:5px
 }
 .home-collection-row-2{
     margin-top:10px;
@@ -3790,7 +3866,7 @@ i.b2-vrenzhengguanli{
     line-height: 1.8;
 }
 .entry-content pre{
-    white-space: nowrap;
+    white-space: revert;
     overflow-x: scroll;
     overflow-y: hidden;
 }
@@ -3975,11 +4051,22 @@ i.b2-vrenzhengguanli{
     overflow: hidden;
     border:1px solid #f5f5f5
 }
-.insert-post.page .insert-post-bg,.insert-post.page .insert-post-thumb{
+.insert-post.circle_tags .insert-post-thumb{
+    width:56px;
+    height:56px;
+    box-shadow: 0 0px 4px #dadada;
+}
+.insert-post.page .insert-post-bg,.insert-post.page .insert-post-thumb,.insert-post.circle .insert-post-bg, .insert-post.circle .insert-post-thumb{
     display: none;
 }
 .insert-post.page .insert-post-content{
     padding:0
+}
+.insert-post.circle .insert-post-content{
+    padding:0
+}
+.insert-post.circle .insert-post-content p{
+    margin-bottom:10px
 }
 .insert-post.page .insert-post-desc{
     margin:0
@@ -4659,6 +4746,7 @@ code, kbd, tt, var {
 
 .entry-content .gallery-columns-4 .gallery-item {
 	max-width: 25%;
+    box-sizing: border-box;
 }
 
 .entry-content .gallery-columns-5 .gallery-item {
@@ -5438,6 +5526,9 @@ code, kbd, tt, var {
     font-weight: 700;
 }
 /*小工具*/
+.b2-widget-user{
+    overflow: hidden;
+}
 .b2-widget-coupon .b2-widget-box{
     padding:10px;
     border-top:1px solid #f3f3f3
@@ -5612,9 +5703,6 @@ code, kbd, tt, var {
     border:2px solid #fff
 }
 /*用户面板小工具*/
-.b2-widget-user.widget{
-    overflow: hidden;
-}
 .user-widget-cover{
     height: 83px;
     object-fit: cover;
@@ -6708,9 +6796,7 @@ code, kbd, tt, var {
     font-size: 12px
 }
 .comment-list button.text{
-    padding:0;
     color:#d0d0d0;
-    background: #efefef;
     padding: 0 6px;
 }
 .comment-list button.text i{
@@ -6877,10 +6963,13 @@ code, kbd, tt, var {
 .comment-list .children article .comment-item {
     margin-left: 64px;
     padding: 16px 16px 16px 44px;
-    background: rgba(240, 241, 242, 0.4);
     margin-right: 15px;
     margin-bottom: 10px;
-    border:0
+    border: 1px dashed #e2e2e2;
+    background: #f9f9f9;
+}
+.comment-list .children article .comment-item .comment-content-text p{
+    font-size: 14px;
 }
 .comment-list .children article .gravatar {
     left: 70px;
@@ -8206,9 +8295,6 @@ button.author-has-follow{
     word-break: break-all;
 }
 /*专题*/
-.b2-pagenav.collection-nav{
-    margin-top:8px
-}
 .collection-box{
     display: flex;
     flex-flow: wrap;
@@ -8745,6 +8831,9 @@ button.author-has-follow{
 .pay-my-money{
     text-align: center;
     margin-bottom:10px
+}
+.pay-my-money a{
+    margin-left:10px
 }
 .pay-my-money p{
     margin-top: 20px;
@@ -11411,6 +11500,11 @@ h2.distribution-title{
 }
 .binding-login .login-bottom{
     margin-top:25px
+}
+.binding-login .pay-close{
+    position: absolute;
+    right: 12px;
+    top: 10px;
 }
 .bind-pass-info{
     font-size: 13px;
