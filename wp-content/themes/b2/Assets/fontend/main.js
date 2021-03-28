@@ -2463,7 +2463,8 @@ Vue.component('scan-box',{
 
             this.$http.post(b2_rest_url+'buildOrder',Qs.stringify(this.data)).then(res=>{
                 this.backData = res.data
-                if(res.data.type !== 'mapay' && res.data.type !== 'pay020'){
+                this.backData.qrcodeurl = res.data.qrcode
+                if(res.data.type !== 'pay020'){
                     var qr = new QRious({
                         value: this.backData.qrcode,
                         size:200,
